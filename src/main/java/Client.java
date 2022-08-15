@@ -16,9 +16,13 @@ public class Client {
 
             String resp = in.readLine();
             System.out.println(resp);
-            out.println("Dmitrii Sobin");
+            final String name = "Dmitrii Sobin";
+            out.println(name);
+            System.out.println(name);
             System.out.println(in.readLine());
-            out.println("Да");
+            final String x = "Да";
+            out.println(x);
+            System.out.println(x);
             System.out.println(in.readLine());
 
         } catch (IOException e) {
