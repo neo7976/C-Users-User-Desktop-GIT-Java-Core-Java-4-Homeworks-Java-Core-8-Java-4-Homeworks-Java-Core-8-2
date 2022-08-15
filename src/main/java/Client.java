@@ -16,17 +16,17 @@ public class Client {
 
             String resp = in.readLine();
             System.out.println(resp);
-            final String name = "Dmitrii Sobin";
-            out.println(name);
-            System.out.println("-" + name);
-            System.out.println(in.readLine());
-            final String x = "Нет";
-            out.println(x);
-            System.out.println("-" + x);
-            System.out.println(in.readLine());
+            inputMessage(out, in, "Dmitrii Sobin");
+            inputMessage(out, in, "Не знаю");
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void inputMessage(PrintWriter out, BufferedReader in, String message) throws IOException {
+        out.println(message);
+        System.out.println("-" + message);
+        System.out.println(in.readLine());
     }
 }
