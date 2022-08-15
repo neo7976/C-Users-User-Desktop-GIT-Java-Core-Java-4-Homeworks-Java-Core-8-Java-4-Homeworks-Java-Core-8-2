@@ -6,7 +6,7 @@ import java.net.Socket;
 
 public class Client {
     public static void main(String[] args) {
-        String host = "127.0.0.1";
+        String host = "netology.homework";
         int port = 2125;
 
         try (Socket client = new Socket(host, port);
