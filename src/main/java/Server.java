@@ -18,8 +18,6 @@ public class Server {
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
                 System.out.println("New connection accept! Port: " + clientSocket.getPort());
-
-
                 out.println("Напиши, как тебя зовут?");
                 final String name = in.readLine();
                 out.println("Ты ребёнок? (Да/Нет");
