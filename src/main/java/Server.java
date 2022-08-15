@@ -12,13 +12,23 @@ public class Server {
 
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             while (true) {
-                Socket clientSocket = serverSocket.accept(); // ожидание подтверждения
+                Socket clientSocket = serverSocket.accept();
                 PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
                 System.out.println("New connection accept! Port: " + clientSocket.getPort());
+                out.println("Напиши, как тебя зовут?");
                 final String name = in.readLine();
-                out.println(String.format("Привет %s!, твой порт подключения: [%d ]", name, clientSocket.getPort()));
+                out.println("Ты ребёнок? (Да/Нет)");
+                final String ageUser = in.readLine();
+                if (ageUser.equals("Да")) {
+                    out.println(String.format("Добро пожаловать в детскую зону развлечений, %s!" +
+                            " Давай играть!", name));
+                } else if (ageUser.equals("Нет")) {
+                    out.println(String.format(" Добро пожаловать во взрослую зону развлечений, %s!" +
+                            " Хорошего отдыха или хорошего рабочего дня!", name));
+                } else out.println(String.format("Такого варианта нет, %s!" +
+                        " Введите ваш возраст в формате \"Да\" или \"Нет\".", name));
             }
         } catch (IOException e) {
             e.printStackTrace();
